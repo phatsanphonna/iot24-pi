@@ -7,7 +7,7 @@ async def echo(websocket: websockets.WebSocketServerProtocol, path):
     connected_clients.add(websocket)
     try:
         async for message in websocket:
-            print(f"Received from client: {message}, Path: {path}")
+            print(f"Received from client: {message}")
             for client in connected_clients:
                 await client.send(message)
     finally:

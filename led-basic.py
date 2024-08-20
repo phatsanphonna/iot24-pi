@@ -1,14 +1,13 @@
 import RPi.GPIO as GPIO
 import time
 
-GPIO.setmode(GPIO.BCM)
-LIGHT = 4
+GPIO.setmode(GPIO.BOARD)
+LIGHT = 8
 
 GPIO.setup(LIGHT,GPIO.OUT)
 
-while True:
-    try:
-        GPIO.output(LIGHT,True)
-    except KeyboardInterrupt:
-        GPIO.cleanup()
+GPIO.output(LIGHT,True)
 
+time.sleep(3)
+
+GPIO.cleanup()
